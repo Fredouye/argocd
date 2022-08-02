@@ -13,4 +13,4 @@ spec:
   ipFamilies:
     - IPv4
   ipFamilyPolicy: SingleStack
-  loadBalancerIP: 192.168.3.201
+  loadBalancerIP: 192.168.3.202
