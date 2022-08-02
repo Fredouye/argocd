@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: squid_config 
+  name: squid-config 
 data:
   squid.conf: |
     acl mynetwork src 192.168.3.0/24
