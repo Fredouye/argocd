@@ -17,8 +17,16 @@ spec:
       containers:
       - name: squid
         image: b4tman/squid:5.6
+        volumeMounts:
+          - name: squid-config
+            mountPath: /etc/squid/mysquid.conf
+            subPath: mysquid.conf
         env:
           - name: SQUID_CONFIG_FILE
             value: /etc/squid/squid.conf
         ports:
         - containerPort: 3128
+      volumes:
+15      - name: squid-config
+16        configMap:
+17          name: squid-config
