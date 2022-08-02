@@ -18,6 +18,8 @@ spec:
         volumeMounts:
         - name: squid-config
           mountPath: /etc/toto.txt
+          subPath: /etc
+          readOnly: true
         ports:
         - containerPort: 80
       volumes:
