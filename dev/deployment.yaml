@@ -25,6 +25,7 @@ spec:
       volumes:
         - name: squid-config
           configMap:
-            # Indiquez le nom de la ConfigMap contenant les fichiers que vous souhaitez ajouter au conteneur
             name: squid-config
+            defaultMode: 420
+            optional: false
   
