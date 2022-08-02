@@ -18,12 +18,10 @@ spec:
         ports:
         - containerPort: 80
         volumeMounts:
-            - name: conf
-              mountPath: /tmp/squid.conf
-              subPath: /tmp
-              readOnly: true
+      - name: squid-config
+        mountPath: /tmp/config.txt
       volumes:
-        - configMap:
+        - name: squid-config
+          configMap:
+        # Indiquez le nom de la ConfigMap contenant les fichiers que vous souhaitez ajouter au conteneur
             name: squid-config
-            optional: false
-          name: conf
