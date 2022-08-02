@@ -15,6 +15,9 @@ spec:
       containers:
       - name: myapp
         image: nginx:1.23.1
+        volumeMounts:
+        - name: squid-config
+          mountPath: /etc/toto.txt
         ports:
         - containerPort: 80
       volumes:
