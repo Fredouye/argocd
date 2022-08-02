@@ -17,3 +17,14 @@ spec:
         image: nginx:1.23.1
         ports:
         - containerPort: 80
+        volumeMounts:
+            - name: conf
+              mountPath: /etc/squid.conf
+              subPath: /etc/
+              readOnly: true
+      volumes:
+        - _type: configMap
+          configMap:
+            name: squid-config
+            optional: false
+          name: conf
