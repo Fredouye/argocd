@@ -20,7 +20,7 @@ spec:
         volumeMounts:
             - name: conf
               mountPath: /tmp/squid.conf
-              subPath: /tmp/
+              subPath: /tmp
               readOnly: true
       volumes:
         - configMap:
