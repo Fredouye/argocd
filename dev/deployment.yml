@@ -18,7 +18,7 @@ spec:
       - name: squid
         image: b4tman/squid:5.6
         env:
-          - name: SQUID_CONFIG_FILE
+          - name: SQUID_CONFIG_FILE2
             value: /etc/mysquid.conf
         ports:
         - containerPort: 3128
