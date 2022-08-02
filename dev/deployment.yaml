@@ -17,11 +17,4 @@ spec:
         image: nginx:1.23.1
         ports:
         - containerPort: 80
-        volumeMounts:
-      - name: squid-config
-        mountPath: /tmp/config.txt
-      volumes:
-        - name: squid-config
-          configMap:
-        # Indiquez le nom de la ConfigMap contenant les fichiers que vous souhaitez ajouter au conteneur
-            name: squid-config
+  
