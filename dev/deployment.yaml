@@ -19,12 +19,11 @@ spec:
         - containerPort: 80
         volumeMounts:
             - name: conf
-              mountPath: /etc/squid.conf
-              subPath: /etc/
+              mountPath: /tmp/squid.conf
+              subPath: /tmp/
               readOnly: true
       volumes:
-        - _type: configMap
-          configMap:
+        - configMap:
             name: squid-config
             optional: false
           name: conf
