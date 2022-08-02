@@ -23,7 +23,7 @@ spec:
             subPath: mysquid.conf
         env:
           - name: SQUID_CONFIG_FILE
-            value: /etc/squid/squid.conf
+            value: /etc/squid/mysquid.conf
         ports:
         - containerPort: 3128
       volumes:
