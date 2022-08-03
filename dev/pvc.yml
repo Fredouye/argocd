@@ -3,11 +3,9 @@ kind: PersistentVolumeClaim
 metadata:
   name: squid-cache
 spec:
-  accessModes:
-    - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Delete
-  volumeMode: Filesystem
   storageClassName: longhorn
+  accessModes:
+   - ReadWriteOnce
   resources:
-    requests:
-      storage: 10Gi
+   requests:
+    storage: 5Gi
