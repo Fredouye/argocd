@@ -28,6 +28,8 @@ spec:
         env:
           - name: SQUID_CONFIG_FILE
             value: /etc/squid/mysquid.conf
+          - name: TZ
+            value: Europe/Paris
         ports:
         - containerPort: 3128
           name: squid
