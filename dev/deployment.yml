@@ -39,15 +39,15 @@ spec:
       securityContext:
         fsGroup: 31
       readinessProbe:
-            exec:
-              command:
-                - /usr/bin/pgrep
-                - /usr/sbin/squid
-            failureThreshold: 3
-            initialDelaySeconds: 10
-            periodSeconds: 10
-            successThreshold: 1
-            timeoutSeconds: 1
+        exec:
+          command:
+          - /usr/bin/pgrep
+          - /usr/sbin/squid
+        failureThreshold: 3
+        initialDelaySeconds: 10
+        periodSeconds: 10
+        successThreshold: 1
+        timeoutSeconds: 1
       volumes:
         - name: squid-config
           configMap:
