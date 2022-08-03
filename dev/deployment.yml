@@ -38,6 +38,6 @@ spec:
         - name: squid-config
           configMap:
             name: mysquid.conf
-        - name: squid-cache
+        - name: mysql-persistent-storage
           persistentVolumeClaim:
             claimName: squid-cache
