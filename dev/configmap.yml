@@ -88,4 +88,4 @@ data:
     #include /etc/squid/conf.d.tail/*.conf
 
     cache_mgr frederic.mangeant@gmail.com
-    error_default_language fr
+    visible_hostname my-squid
