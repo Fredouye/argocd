@@ -17,6 +17,7 @@ spec:
       containers:
       - name: squid
         image: b4tman/squid:5.6
+        imagePullPolicy: IfNotPresent
         volumeMounts:
           - name: squid-config
             mountPath: /etc/squid/mysquid.conf
