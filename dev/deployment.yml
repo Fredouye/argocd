@@ -36,17 +36,13 @@ spec:
         ports:
         - containerPort: 3128
           name: squid
+        readinessProbe:
+           tcpSocket:
+             port: 3128
+           initialDelaySeconds: 10
+           periodSeconds: 10
       securityContext:
         fsGroup: 31
-      readinessProbe:
-          initialDelaySeconds: 1
-          periodSeconds: 5
-          timeoutSeconds: 1
-          successThreshold: 1
-          failureThreshold: 1
-          tcpSocket:
-            host:
-            port: 3128
       volumes:
         - name: squid-config
           configMap:
