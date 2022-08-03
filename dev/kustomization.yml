@@ -9,4 +9,4 @@ resources:
 - service.yml
 
 commonAnnotations:
-  conf/version: 03.08.2022-11h23
+  conf/version: 03.08.2022-16h39
