@@ -26,8 +26,6 @@ spec:
             mountPath: /etc/squid/mysquid.conf
             subPath: mysquid.conf
             readOnly: true
-          - name: squid-cache
-            mountPath: /var/cache/squid
         env:
           - name: SQUID_CONFIG_FILE
             value: /etc/squid/mysquid.conf
@@ -40,6 +38,3 @@ spec:
         - name: squid-config
           configMap:
             name: mysquid.conf
-        - persistentVolumeClaim:
-            claimName: squid-cache
-          name: squid-cache
