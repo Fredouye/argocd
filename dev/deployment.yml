@@ -19,7 +19,7 @@ spec:
       containers:
       - name: squid
 #        image: b4tman/squid:5.6
-        image: fredouye/my-squid:0.1-alpine
+        image: fredouye/my-squid:0.3-alpine
         imagePullPolicy: IfNotPresent
         volumeMounts:
           - name: squid-config
