@@ -36,21 +36,21 @@ spec:
         ports:
         - containerPort: 3128
           name: squid
-        readinessProbe:
+        livenessProbe:
            tcpSocket:
              port: 3128
            initialDelaySeconds: 10
            periodSeconds: 10
-         readinessProbe:
-            exec:
-              command:
-                - /usr/bin/pgrep
-                - /usr/sbin/squid
-            failureThreshold: 3
-            initialDelaySeconds: 10
-            periodSeconds: 10
-            successThreshold: 1
-            timeoutSeconds: 1
+        readinessProbe:
+           exec:
+             command:
+              - /usr/bin/pgrep
+              - /usr/sbin/squid
+           failureThreshold: 3
+           initialDelaySeconds: 10
+           periodSeconds: 10
+           successThreshold: 1
+           timeoutSeconds: 1
       securityContext:
         fsGroup: 31
       volumes:
