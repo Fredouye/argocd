@@ -27,6 +27,7 @@ spec:
             value: /etc/squid/mysquid.conf
         ports:
         - containerPort: 3128
+          name: squid
       volumes:
         - name: squid-config
           configMap:
