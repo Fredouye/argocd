@@ -8,8 +8,8 @@ spec:
     app: squid
   ports:
     - protocol: TCP
-      port: 3128
-      targetPort: 3128
+      port: 8080
+      targetPort: 8080
   ipFamilies:
     - IPv4
   ipFamilyPolicy: SingleStack
