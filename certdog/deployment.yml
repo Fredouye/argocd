@@ -1,1 +1,30 @@
-ddddddd
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: certdog-deployment
+  labels:
+    app: certdog
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: certdog
+  template:
+    metadata:
+      labels:
+        app: certdog
+    spec:
+      containers:
+      - name: certdog
+        image: krestfield/certdog
+        imagePullPolicy: IfNotPresent
+        env:
+          - name: TZ
+            value: Europe/Paris
+        ports:
+        - containerPort: 80
+          name: certdog-http
+        - containerPort: 443
+          name: certdog-https
