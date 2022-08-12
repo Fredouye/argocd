@@ -89,3 +89,4 @@ data:
 
     cache_mgr frederic.mangeant@gmail.com
     visible_hostname my-squid
+    error_default_language fr
