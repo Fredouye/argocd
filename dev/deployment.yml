@@ -20,7 +20,7 @@ spec:
       - name: squid
 #        image: b4tman/squid:5.6
         image: fredouye/squid:5.5
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         volumeMounts:
           - name: squid-config
             mountPath: /etc/squid/mysquid.conf
