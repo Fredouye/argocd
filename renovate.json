@@ -4,6 +4,6 @@
     "config:base"
   ],
   "kubernetes": {
-    “fileMatch”: ["dev/.+\\.yml$"]
+    "fileMatch": ["dev/.+\\.yml$"]
   }
 }
