@@ -3,7 +3,7 @@
   "extends": [
     "config:base"
   ],
-  “kubernetes”: {
+  "kubernetes": {
     “fileMatch”: ["dev/.+\\.yml$"]
   }
 }
