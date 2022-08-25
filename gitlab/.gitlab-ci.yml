@@ -1,9 +1,74 @@
+workflow:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "web"'                        # Manual trigger
+    - if: '$CI_PIPELINE_SOURCE == "trigger"'                    # Trigger from API
+
+variables:
+  TOTO: 12345
+  PACKER_VERSION: "1.8.3"
+  CUSTOMER:
+    value: "keolis"
+    description: "Choose the customer"
+  ENVIRONMENT:
+    value: "dev"
+    description: "dev/prod"
+
 stages:
-  - test
-  
-test-job
-  stage: test
-  image:
-    name: alpine:3.15
+  - shell
+  - ansible
+  - validate
+  - build
+
+default:
+  image: alpine:3.15
+  before_script:
+    - echo "before global"
+
+shell-job:
+  stage: shell
+  allow_failure: true
+  environment: $ENVIRONMENT
+  before_script: [""]
+  variables:
+    TITI: 4567
   script:
-    - ls
+    - pwd
+    - ls -al
+    - env | grep ^CI
+    - echo "hello world"
+    - echo $ENVIRONMENT
+    - echo $VCENTER_PASSWORD
+    - echo Toto12345
+    - apk add curl
+    - exit 1
+
+ansible-job:
+  stage: ansible
+  image: quay.io/ansible/ansible-runner:stable-2.12-latest
+#  tags:
+#    - ghc
+  variables:
+    ANSIBLE_FORCE_COLOR: '1'
+  before_script:
+    - pip install pyvmomi ansible-lint
+  script:
+    - ansible --version
+    - ansible-lint --version
+    - ansible-playbook playbook.yml
+
+packer-validate:
+  stage: validate
+  image:
+    name: hashicorp/packer:$PACKER_VERSION
+    entrypoint: [""]
+  script:
+    - packer --version
+
+packer-build:
+  stage: build
+  image:
+    name: hashicorp/packer:$PACKER_VERSION
+    entrypoint: [""]
+  script:
+    - apk add --no-cache xorriso
+    - packer --version
