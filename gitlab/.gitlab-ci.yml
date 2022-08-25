@@ -1,0 +1,8 @@
+stages:
+  - test
+  
+test-job
+  image:
+    name: alpine:3.15
+  script:
+    - ls
