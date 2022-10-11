@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: smtp-deployment
+  labels:
+    app: smtp
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: smtp
+    spec:
+      containers:
+      - name: smtp
+        image: ixdotai/smtp:v0.1.3
+        imagePullPolicy: IfNotPresent
+        env:
+          - name: TZ
+            value: Europe/Paris
+        ports:
+        - containerPort: 25
+          name: smtp
+        - containerPort: 587
+          name: smtps
