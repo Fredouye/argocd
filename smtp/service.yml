@@ -6,15 +6,11 @@ spec:
   type: LoadBalancer
   selector:
     app: smtp
-ports:
-  - name: smtp
-    port: 25
-    protocol: TCP
-    targetPort: 25
-  - name: smtps
-    port: 587
-    protocol: TCP
-    targetPort: 587
+  ports:
+    - name: smtp
+      port: 25
+      protocol: TCP
+      targetPort: 25
   ipFamilies:
     - IPv4
   ipFamilyPolicy: SingleStack
