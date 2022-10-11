@@ -6,3 +6,6 @@ metadata:
 data:
   DISABLE_IPV6: 'true'
   RELAY_NETWORKS: 192.168.0.0/24
+  MAILNAME: smtp.home.lab
+  SMARTHOST_ADDRESS: 1.2.3.4
+  SMARTHOST_PORT: 25
