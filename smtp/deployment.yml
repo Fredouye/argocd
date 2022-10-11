@@ -23,6 +23,12 @@ spec:
         env:
           - name: TZ
             value: Europe/Paris
+          - name: DISABLE_IPV6
+            valueFrom:
+              configMapKeyRef:
+                key: DISABLE_IPV6
+                name: smtp-settings
+                optional: false
         ports:
         - containerPort: 25
           name: smtp
