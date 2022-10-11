@@ -28,6 +28,30 @@ spec:
               configMapKeyRef:
                 key: DISABLE_IPV6
                 name: smtp-settings
+                optional: true
+          - name: RELAY_NETWORKS
+            valueFrom:
+              configMapKeyRef:
+                key: RELAY_NETWORKS
+                name: smtp-settings
+                optional: false
+          - name: MAILNAME
+            valueFrom:
+              configMapKeyRef:
+                key: MAILNAME
+                name: smtp-settings
+                optional: false
+          - name: SMARTHOST_ADDRESS
+            valueFrom:
+              configMapKeyRef:
+                key: SMARTHOST_ADDRESS
+                name: smtp-settings
+                optional: false
+          - name: SMARTHOST_PORT
+            valueFrom:
+              configMapKeyRef:
+                key: SMARTHOST_PORT
+                name: smtp-settings
                 optional: false
         ports:
         - containerPort: 25
