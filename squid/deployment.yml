@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: squid-deployment
+  labels:
+    app: squid
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: squid
+  template:
+    metadata:
+      labels:
+        app: squid
+    spec:
+      containers:
+      - name: squid
+        image: b4tman/squid:5.6
+        imagePullPolicy: Always
+        volumeMounts:
+          - name: squid-config
+            mountPath: /etc/squid/mysquid.conf
+            subPath: mysquid.conf
+            readOnly: true
+          - name: squid-cache
+            mountPath: /var/cache/squid
+        env:
+          - name: SQUID_CONFIG_FILE
+            value: /etc/squid/mysquid.conf
+          - name: TZ
+            value: Europe/Paris
+        ports:
+        - containerPort: 3128
+          name: squid
+        livenessProbe:
+           tcpSocket:
+             port: 3128
+           initialDelaySeconds: 10
+           periodSeconds: 10
+        readinessProbe:
+           exec:
+             command:
+              - /usr/bin/pgrep
+              - /usr/sbin/squid
+           failureThreshold: 3
+           initialDelaySeconds: 10
+           periodSeconds: 10
+           successThreshold: 1
+           timeoutSeconds: 1
+      securityContext:
+        fsGroup: 31
+      volumes:
+        - name: squid-config
+          configMap:
+            name: mysquid.conf
+        - name: squid-cache
+          persistentVolumeClaim:
+            claimName: squid-cache
