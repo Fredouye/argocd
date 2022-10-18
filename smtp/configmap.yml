@@ -5,7 +5,7 @@ metadata:
   namespace: smtp
 data:
   DISABLE_IPV6: 'true'
-  RELAY_NETWORKS: ':192.168.0.0/24:10.0.0.0/16'
+  RELAY_NETWORKS: ':192.168.0.0/24:10.0.0.0/16:192.168.1.1/32'
   MAILNAME: 'smtp.home.lab'
   SMARTHOST_ADDRESS: '1.2.3.4'
   SMARTHOST_PORT: '25'
