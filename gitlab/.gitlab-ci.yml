@@ -20,7 +20,7 @@ stages:
   - build
 
 default:
-  image: alpine:3.15
+  image: alpine:3.18
   before_script:
     - echo "before global"
 
