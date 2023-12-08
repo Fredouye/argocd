@@ -1,4 +1,4 @@
-FROM alpine:3.16
+FROM alpine:3.19
 
 LABEL org.opencontainers.image.authors="Frederic Mangeant <frederic.mangeant@gmail.com>"
 LABEL org.opencontainers.image.version="5.5"
