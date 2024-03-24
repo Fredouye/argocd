@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: squid
-        image: b4tman/squid:5.7
+        image: b4tman/squid:6.8
         imagePullPolicy: Always
         volumeMounts:
           - name: squid-config
