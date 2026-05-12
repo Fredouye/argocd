@@ -1,1 +1,1 @@
-pyvmomi==7.0.2
+pyvmomi==9.1.0.0
